@@ -1,5 +1,3 @@
-# 编辑中
-
 # PiKVM_Prebuild_image_NanoPi-Neo
 
 这是一个NanoPi Neo的预构建镜像，该镜像可以让Pikvm运行在NanoPi Neo上。

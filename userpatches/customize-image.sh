@@ -118,6 +118,7 @@ install-dependencies
 get-packages
 git clone https://github.com/Road-tech/kvmd-armbian.git /root/kvmd-armbian
 git clone https://github.com/Road-tech/NanoHatOLED.git /root/NanoHatOLED
+touch /root/.no_rootfs_resize 
 cd /root/NanoHatOLED
 apt-get install i2c-tools libi2c-dev minicom git -y
 if [ ! -f BakeBit/install.sh ]; then

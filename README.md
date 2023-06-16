@@ -27,7 +27,7 @@
 前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，并用[Etcher](https://etcher.balena.io/)刷入镜像。  
 如果您不需要使用MSD功能，可直接开机并跳至->步骤[安装Pikvm](#安装Pikvm)，如果需要请留意下一步。  
 
-### 占用分区
+### 占用分区(20230616更新——已屏蔽主分区自动扩展，可跳过)
 因为MSD需要单独的一个分区用于存放镜像文件，而系统第一次启动后会自动扩展分区占用完所有的TF卡空间。当分区扩展完后再压缩就很困难了，所以启动前先使用磁盘分区工具把剩余的空间占用好，避免Armbian的自动扩展。  
 我在Windows下使用的是[DiskGenius](https://www.diskgenius.cn/)，镜像刷入TF后大概占用2.3G的样子,把剩余的空间设定为扩展就行了，然后激活主分区就行了。不用担心容量分配不合理，我们会在下一步调整。  
 

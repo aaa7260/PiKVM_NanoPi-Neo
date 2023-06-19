@@ -7,6 +7,8 @@ on:
 env:
   UPLOAD_IMAGE: true
   CUSTOMIZATIOM_SCRIPT: userpatches/customize-image.sh
+  ARMBIAN_CHECK_FIRST_LOGIN: armbian-check-first-login.sh
+  AIMBIAN_FIRSTLOGIN: armbian-firstlogin
   KERNEL_CONFIG: config
   UPLOAD_RELEASE: true
 
@@ -33,6 +35,9 @@ jobs:
         pwd
         echo   $GITHUB_WORKSPACE
         git clone --depth=1 --branch=main https://github.com/armbian/build
+        cd build
+        [ -e $ARMBIAN_CHECK_FIRST_LOGIN ] && mv $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN packages/bsp/common/etc/profile.d/armbian-check-first-login.sh
+        [ -e $AIMBIAN_FIRSTLOGIN ] && mv $GITHUB_WORKSPACE/$AIMBIAN_FIRSTLOGIN packages/bsp/common/usr/lib/armbian/armbian-firstlogin
         # curl -L -o armbian.tar.gz $(curl https://api.github.com/repos/armbian/build/releases | awk -F"[tarball_url]" '/tarball_url/{print $x}' | grep $RELEASE_SOURCE_TAG | sed 's/"//g' | sed 's/tarball_url://g' | sed 's/ //g' | sed 's/,//g')
         # tar -xzf armbian.tar.gz
         # rm -rf armbian.tar.gz

@@ -6,7 +6,7 @@
 # License version 2. This program is licensed "as is" without any
 # warranty of any kind, whether express or implied.
 
-# File in packages/bsp/common/usr/lib/armbian/armbian-firstlogin
+# File in packages/bsp/common/etc/profile.d/armbian-check-first-login.sh
 
 if [ -e /root/kvmd-armbian/.part1_install_yet ]; then
 	bash /root/kvmd-armbian/install.sh

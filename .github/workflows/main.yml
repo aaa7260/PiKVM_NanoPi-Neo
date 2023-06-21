@@ -50,14 +50,16 @@ jobs:
         cd build
         echo "cp armbian-check-first-login.sh"
         [ -e $ARMBIAN_CHECK_FIRST_LOGIN ] && mv -f $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN packages/bsp/common/etc/profile.d/$ARMBIAN_CHECK_FIRST_LOGIN
+        cat $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN
+        echo "________________________________________________"
         cat packages/bsp/common/etc/profile.d/$ARMBIAN_CHECK_FIRST_LOGIN
         echo "cp armbian-firstlogin"
         [ -e $AIMBIAN_FIRSTLOGIN ] && mv -f $GITHUB_WORKSPACE/$AIMBIAN_FIRSTLOGIN packages/bsp/common/usr/lib/armbian/$AIMBIAN_FIRSTLOGIN
         cat packages/bsp/common/usr/lib/armbian/$AIMBIAN_FIRSTLOGIN
         echo "cp userpatches/customize-image.sh and compile"
         [ -e $CUSTOMIZATIOM_SCRIPT ] && mv -f $GITHUB_WORKSPACE/$CUSTOMIZATIOM_SCRIPT userpatches/customize-image.sh
-        ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
-        echo "::set-output name=status::success"
+        # ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
+        # echo "::set-output name=status::success"
         cd  output/images
         tar -Jcvf /tmp/nanopi_neo_image.tar.xz  *.img        
 

@@ -35,7 +35,7 @@ jobs:
         pwd
         echo   $GITHUB_WORKSPACE
         # git clone --depth=1 --branch=main https://github.com/armbian/build
-        git clone --depth=1 --branch=main https://github.com/Road-tech/armbian-build.git
+        git clone --depth=1 --branch=main https://github.com/Road-tech/armbian-build.git build
      
     - name: Parepre Armbian Env
       run: |

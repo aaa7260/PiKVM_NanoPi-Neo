@@ -403,9 +403,9 @@ if [[ -f /root/.not_logged_in_yet && -n $(tty) ]]; then
 	set_shell
 	trap - INT TERM EXIT
 
-	trap check_abort INT
-
 	bash /root/kvmd-armbian/install.sh
+
+	trap check_abort INT
 
 	while [ -f "/root/.not_logged_in_yet" ]; do
 		echo -e "\nCreating a new user account. Press <Ctrl-C> to abort"

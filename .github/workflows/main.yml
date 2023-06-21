@@ -42,7 +42,7 @@ jobs:
     - name: Parepre Armbian Env
       run: |
         cd build
-        bash ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
+        #./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
    
     - name: Add customize-image.sh
       id: build

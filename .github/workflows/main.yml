@@ -46,13 +46,6 @@ jobs:
       id: build
       run: |
         cd build
-        pwd
-        echo "cp armbian-check-first-login.sh"
-        cat $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN
-        echo "________________________________________________"
-        cat packages/bsp/common/etc/profile.d/$ARMBIAN_CHECK_FIRST_LOGIN
-        echo "________________________________________________"
-        echo "________________________________________________"
         echo "cp userpatches/customize-image.sh and compile"
         [ -e $CUSTOMIZATIOM_SCRIPT ] && mv -f $GITHUB_WORKSPACE/$CUSTOMIZATIOM_SCRIPT userpatches/customize-image.sh
         ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no

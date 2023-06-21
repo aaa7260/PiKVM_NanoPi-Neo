@@ -34,15 +34,13 @@ jobs:
       run: |
         pwd
         echo   $GITHUB_WORKSPACE
-        git clone --depth=1 --branch=main https://github.com/armbian/build
-        # curl -L -o armbian.tar.gz $(curl https://api.github.com/repos/armbian/build/releases | awk -F"[tarball_url]" '/tarball_url/{print $x}' | grep $RELEASE_SOURCE_TAG | sed 's/"//g' | sed 's/tarball_url://g' | sed 's/ //g' | sed 's/,//g')
-        # tar -xzf armbian.tar.gz
-        # rm -rf armbian.tar.gz
+        # git clone --depth=1 --branch=main https://github.com/armbian/build
+        git clone --depth=1 --branch=main https://github.com/Road-tech/armbian-build.git
      
     - name: Parepre Armbian Env
       run: |
         cd build
-        #./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
+        ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
    
     - name: Add customize-image.sh
       id: build
@@ -50,19 +48,15 @@ jobs:
         cd build
         pwd
         echo "cp armbian-check-first-login.sh"
-        [ -e $ARMBIAN_CHECK_FIRST_LOGIN ] &&sudo cp -rf $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN packages/bsp/common/etc/profile.d/$ARMBIAN_CHECK_FIRST_LOGIN
         cat $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN
         echo "________________________________________________"
         cat packages/bsp/common/etc/profile.d/$ARMBIAN_CHECK_FIRST_LOGIN
         echo "________________________________________________"
         echo "________________________________________________"
-        echo "cp armbian-firstlogin"
-        [ -e $AIMBIAN_FIRSTLOGIN ] && cp -rf $GITHUB_WORKSPACE/$AIMBIAN_FIRSTLOGIN packages/bsp/common/usr/lib/armbian/$AIMBIAN_FIRSTLOGIN
-        cat packages/bsp/common/usr/lib/armbian/$AIMBIAN_FIRSTLOGIN
         echo "cp userpatches/customize-image.sh and compile"
         [ -e $CUSTOMIZATIOM_SCRIPT ] && mv -f $GITHUB_WORKSPACE/$CUSTOMIZATIOM_SCRIPT userpatches/customize-image.sh
-        # ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
-        # echo "::set-output name=status::success"
+        ./compile.sh build BOARD=nanopineo BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
+        echo "::set-output name=status::success"
         cd  output/images
         tar -Jcvf /tmp/nanopi_neo_image.tar.xz  *.img        
 

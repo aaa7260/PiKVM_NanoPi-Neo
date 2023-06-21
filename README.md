@@ -24,7 +24,7 @@
 ## 使用步骤  
 
 ### 刷入镜像  
-前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，并用[Etcher](https://etcher.balena.io/)刷入镜像。  
+前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，解压获取img文件，并用[Etcher](https://etcher.balena.io/)刷入镜像。  
 如果您不需要使用MSD功能，可直接开机并跳至->步骤[安装Pikvm](#安装Pikvm)，如果需要请留意下一步。  
 
 ### 占用分区(20230616更新——已屏蔽主分区自动扩展，可跳过)
@@ -34,9 +34,10 @@
 ![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-04.png?raw=true)  
 ![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-05.png?raw=true)  
 
-### 插电开机  
-第一次启动默认账户为`root`，密码为`1234`。进入系统后会让你设定新密码以及System command shell。  
-在让你设置新的用户账户时即可`Ctrl+C`退出。  
+### 插电开机（20230621更新）  
+第一次启动默认账户为`root`，密码为`1234`。进入系统后会自动进行PiKVM的第一部分安装并重启。
+再次登录系统，喜欢会让你设定新密码以及System command shell，接下来系统会完成行PiKVM的第二部分安装，最后会让你设置新的用户账户。
+此时你可以按需设置新的用户账户或`Ctrl+C`退出。  
 
 ![设置用户](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-01.png?raw=true)  
 

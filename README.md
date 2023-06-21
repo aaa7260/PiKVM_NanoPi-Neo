@@ -41,6 +41,17 @@
 
 ![设置用户](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-01.png?raw=true)  
 
+### 安装Pikvm（20230621更新--可跳过）
+cd到root用户的主目录下，可以看到有两个文件夹。`kvmd-armbian`目录存放PiKVM的安装脚本，`NanoHatOLED`目录存放了OLED的驱动脚本。
+
+![安装PiKVM](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
+
+执行安装脚本：  
+```
+cd kvmd-armbian && ./install.sh
+```
+安装分两部分，Part1安装完成后会自动重启一次，需再次执行以上命令完成Part2安装.  
+
 ### 调整MSD分区
 查看分区信息：   
 ```
@@ -68,18 +79,6 @@ resize2fs /dev/mmcblk0p1
 ```
 mkfs -t ext4 /dev/mmcblk0p2
 ```  
-
-### 安装Pikvm（20230621更新--可跳过）
-cd到root用户的主目录下，可以看到有两个文件夹。`kvmd-armbian`目录存放PiKVM的安装脚本，`NanoHatOLED`目录存放了OLED的驱动脚本。
-
-![安装PiKVM](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
-
-执行安装脚本：  
-```
-cd kvmd-armbian && ./install.sh
-```
-
-安装分两部分，Part1安装完成后会自动重启一次，需再次执行以上命令完成Part2安装.  
 
 ### 挂载MSD分区
 编辑文件：  

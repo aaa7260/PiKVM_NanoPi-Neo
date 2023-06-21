@@ -35,8 +35,8 @@
 ![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-05.png?raw=true)  
 
 ### 插电开机（20230621更新）  
-第一次启动默认账户为`root`，密码为`1234`。进入系统后会自动进行PiKVM的第一部分安装并重启。
-再次登录系统，喜欢会让你设定新密码以及System command shell，接下来系统会完成行PiKVM的第二部分安装，最后会让你设置新的用户账户。
+第一次启动默认账户为`root`，密码为`1234`。进入系统后会自动进行PiKVM的第一部分安装并重启。     
+再次登录系统，喜欢会让你设定新密码以及System command shell，接下来系统会完成行PiKVM的第二部分安装，最后会让你设置新的用户账户。     
 此时你可以按需设置新的用户账户或`Ctrl+C`退出。  
 
 ![设置用户](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-01.png?raw=true)  
@@ -69,10 +69,10 @@ resize2fs /dev/mmcblk0p1
 mkfs -t ext4 /dev/mmcblk0p2
 ```  
 
-### 安装Pikvm
+### 安装Pikvm（20230621更新--可跳过）
 cd到root用户的主目录下，可以看到有两个文件夹。`kvmd-armbian`目录存放PiKVM的安装脚本，`NanoHatOLED`目录存放了OLED的驱动脚本。
 
-![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
+![安装PiKVM](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
 
 执行安装脚本：  
 ```

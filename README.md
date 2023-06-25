@@ -23,6 +23,11 @@
 
 ## 使用步骤  
     
+### 刷入镜像  
+前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，一直解压直到获得.img文件，并用[Etcher](https://etcher.balena.io/)将镜像刷入TF卡。 
+
+第一次开机用时会比较长，请耐心等待。   
+
 ### 占用分区(20230616更新)
 
 <details>
@@ -34,11 +39,6 @@
 ![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-04.png?raw=true)  
 ![占用分区](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-05.png?raw=true)  
 </details>
-
-### 刷入镜像  
-前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，一直解压直到获得.img文件，并用[Etcher](https://etcher.balena.io/)刷入镜像。 
-
-第一次开机用时会比较长，请耐心等待。   
 
 ### 插电开机（20230625更新）  
 第一次启动默认账户为`root`，密码为`1234`。进入系统后会完成PiKVM的安装。     

@@ -53,16 +53,14 @@
     
 cd到root用户的主目录下，可以看到有两个文件夹。`kvmd-armbian`目录存放PiKVM的安装脚本，`NanoHatOLED`目录存放了OLED的驱动脚本。    
 
+![安装PiKVM](https://github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
 
-![安装PiKVM](https:github.com/Road-tech/Road-blog-Figure/blob/main/PiKVM_Prebuild_image_NanoPi-Neo/PiKVM_Prebuild_image_NanoPi-Neo-10.png?raw=true)  
-
-Execute the installation script:    
+运行以下命令:    
 ```
 cd kvmd-armbian && ./install.sh
 ```
+这个安装程序分为两部分，第一部分将在完成后自动重启，然后需要你再次执行以上命令完成第二部分的安装。    
 
-这个安装程序分为两部分，第一部分将在完成后自动重启，然后你需要再次执行命令完成第二部分的安装。
-The installation is divided into two parts, Part1 will be automatically restarted once after the installation is completed, and you need to execute the above command again to complete the Part2 installation.  
 </details>
 
 ### 调整MSD分区

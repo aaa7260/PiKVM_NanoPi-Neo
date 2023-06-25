@@ -24,7 +24,7 @@
 ## 使用步骤  
 
 ### 刷入镜像  
-前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，解压至img文件，并用[Etcher](https://etcher.balena.io/)刷入镜像。 
+前往[发布页](https://github.com/Road-tech/PiKVM_Prebuild_image_NanoPi-Neo/releases)下载镜像，一直解压直到获得.img文件，并用[Etcher](https://etcher.balena.io/)刷入镜像。 
 
 第一次开机用时会比较长，请耐心等待。   # PiKVM_Prebuild_image_NanoPi-Neo
 

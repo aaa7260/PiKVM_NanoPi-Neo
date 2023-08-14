@@ -18,8 +18,8 @@ env:
   OUTPUT_DIR: /tmp/images
   IMAGE_FILENAME: ${{ inputs.set_board }}_image
   CUSTOMIZATIOM_SCRIPT: userpatches/customize-image.sh
-  #ARMBIAN_CHECK_FIRST_LOGIN: armbian-check-first-login.sh
-  #AIMBIAN_FIRSTLOGIN: armbian-firstlogin
+  ARMBIAN_CHECK_FIRST_LOGIN: userpatches/armbian-check-first-login.sh
+  AIMBIAN_FIRSTLOGIN: userpatches/armbian-firstlogin
   #KERNEL_CONFIG: config
   UPLOAD_RELEASE: true
 
@@ -43,14 +43,21 @@ jobs:
 
     - name: Download source code
       run: |
-        pwd
-        echo   $GITHUB_WORKSPACE
-        # git clone --depth=1 --branch=main https://github.com/armbian/build
-        git clone --depth=1 --branch=main https://github.com/Road-tech/armbian-build.git build
-     
+        git clone --depth=1 --branch=main https://github.com/armbian/build
+        # git clone --depth=1 --branch=main https://github.com/Road-tech/armbian-build.git build
+        cd build/packages/bsp/common/etc/profile.d/
+        cat $GITHUB_WORKSPACE/$ARMBIAN_CHECK_FIRST_LOGIN > armbian-check-first-login.sh
+        cd - && cd build/packages/bsp/common/usr/lib/armbian
+        cat $GITHUB_WORKSPACE/$AIMBIAN_FIRSTLOGIN > armbian-firstlogin
+
     - name: Parepre Armbian Env
       run: |
         cd build
+        echo file armbian-check-first-login.sh
+        cat packages/bsp/common/etc/profile.d/armbian-check-first-login.sh
+        echo
+        echo file armbian-firstlogin
+        cat packages/bsp/common/usr/lib/armbian/armbian-firstlogin
         ./compile.sh build BOARD=${{ inputs.set_board }} BRANCH=current BUILD_MINIMAL=no KERNEL_CONFIGURE=no RELEASE=jammy BUILD_DESKTOP=no
    
     - name: Add customize-image.sh

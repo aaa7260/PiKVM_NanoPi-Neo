@@ -12,6 +12,7 @@ on:
         options:
           - nanopineo
           - nanopineo2
+          - chainedbox
 
 env:
   #UPLOAD_IMAGE: true
